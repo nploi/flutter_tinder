@@ -2,7 +2,9 @@ import 'package:dio/dio.dart' as dio;
 import 'package:flutter_tinder/models/models.dart';
 
 class RandomUserClient {
-  final String url = "https://randomuser.me/api/0.4";
+  const RandomUserClient({this.url = "https://randomuser.me/api/0.4"});
+
+  final String url;
 
   Future<User> getUser({String gender = "female"}) async {
     try {

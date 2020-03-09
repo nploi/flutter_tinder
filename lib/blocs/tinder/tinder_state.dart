@@ -1,4 +1,3 @@
-
 part of 'tinder_bloc.dart';
 
 @immutable
@@ -25,13 +24,14 @@ class TinderErrorState extends TinderState {
   String toString() => "TinderErrorState {files: $message}";
 }
 
-class TinderDidSomeThingState extends TinderState {
+class TinderLoadedNextPageState extends TinderState {
+  final List<User> users;
 
-  const TinderDidSomeThingState();
-
-  @override
-  List<Object> get props => [];
+  const TinderLoadedNextPageState(this.users);
 
   @override
-  String toString() => "TinderDidSomeThingState {}";
+  List<Object> get props => [users];
+
+  @override
+  String toString() => "TinderLoadedNextPageState {users: $users}";
 }

@@ -8,14 +8,14 @@ abstract class TinderEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class TinderDoSomeThingEvent extends TinderEvent {
+class TinderLoadNextPageEvent extends TinderEvent {
 
-  const TinderDoSomeThingEvent();
+  const TinderLoadNextPageEvent();
 
   @override
   List<Object> get props => [];
 
   @override
-  String toString() => "TinderDoSomeThingEvent {}";
+  String toString() => "TinderLoadNextPageEvent {}";
 }
 

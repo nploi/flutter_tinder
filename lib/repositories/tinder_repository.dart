@@ -1,9 +1,16 @@
 
-class TinderRepository {
-  const TinderRepository();
+import 'package:flutter_tinder/models/models.dart';
+import 'package:flutter_tinder/repositories/random_user_client.dart';
 
-  Future<void> goSomeThing() async {
-	// TODO your logic
-    return;
+class TinderRepository {
+  const TinderRepository({this.client = const RandomUserClient()});
+  final RandomUserClient client;
+
+  Future<List<User>> getUsers({int page = 0, String gender = "female"}) async {
+    return client.getUsers(
+      page: page,
+      gender: gender,
+      result: 10
+    );
   }
 }

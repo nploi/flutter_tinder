@@ -1,6 +1,6 @@
-
 import 'package:bloc_test/bloc_test.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:flutter_tinder/models/user.dart';
 import 'package:mockito/mockito.dart';
 import 'package:flutter_tinder/blocs/tinder/tinder_bloc.dart';
 import 'package:flutter_tinder/repositories/tinder_repository.dart';
@@ -12,6 +12,7 @@ void main() {
   MockTinderRepository tinderRepository;
 
   setUp(() {
+    tinderRepository = MockTinderRepository();
     tinderBloc = TinderBloc(tinderRepository: tinderRepository);
   });
 
@@ -20,17 +21,18 @@ void main() {
   });
 
   group("TinderBloc", () {
+    List<User> users = [User(), User()];
     blocTest<TinderBloc, TinderEvent, TinderState>(
-      'emits [TinderLoadingState(), TinderDidSomeThingState()]'
+      'emits [TinderLoadingState(), TinderLoadedNextPageState()]'
       'when successful',
       build: () async {
+        when(tinderRepository.getUsers(page: 0)).thenAnswer((_) async => users);
         return tinderBloc;
       },
-      act: (bloc) async =>
-          tinderBloc.add(const TinderDoSomeThingEvent()),
+      act: (bloc) async => tinderBloc.add(const TinderLoadNextPageEvent()),
       expect: [
-         TinderLoadingState(),
-         const TinderDidSomeThingState(),
+        TinderLoadingState(),
+        TinderLoadedNextPageState(users),
       ],
     );
   });

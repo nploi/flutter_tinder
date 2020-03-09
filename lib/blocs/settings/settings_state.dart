@@ -22,7 +22,7 @@ class SettingsErrorState extends SettingsState {
   List<Object> get props => [message];
 
   @override
-  String toString() => "SettingsErrorState {files: $message}";
+  String toString() => "SettingsErrorState {message: $message}";
 }
 
 class SettingsUpdatedSettingsState extends SettingsState {

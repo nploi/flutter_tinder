@@ -21,7 +21,7 @@ class UserErrorState extends UserState {
   List<Object> get props => [message];
 
   @override
-  String toString() => "UserErrorState {files: $message}";
+  String toString() => "UserErrorState {message: $message}";
 }
 
 class UserLikedState extends UserState {

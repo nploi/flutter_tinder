@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:dio/dio.dart' as dio;
 import 'package:flutter_tinder/models/models.dart';
 
@@ -23,17 +25,23 @@ class RandomUserClient {
   }
 
   Future<List<User>> getUsers(
-      {String gender = "female", int page = 0, int result = 10}) async {
+      {String gender = "female", int page = 0, int results = 100}) async {
     try {
-      dio.Response dioResponse = await dio.Dio().get(
+      final dio.Dio dioValue = dio.Dio()
+        ..interceptors.add(
+          dio.LogInterceptor(requestBody: true, responseBody: true),
+        );
+
+      dio.Response dioResponse = await dioValue.get(
         url + "/?randomapiyy",
         queryParameters: {
           "gender": gender,
           "page": page,
-          "result": result,
+          "results": results,
         },
       );
-      Response response = Response.fromJson(dioResponse.data);
+
+      Response response = Response.fromJson(jsonDecode(dioResponse.data));
       if (response.results.isEmpty) {
         throw Exception("Results is Empty");
       }

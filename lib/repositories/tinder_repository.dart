@@ -1,4 +1,3 @@
-
 import 'package:flutter_tinder/models/models.dart';
 import 'package:flutter_tinder/repositories/random_user_client.dart';
 
@@ -7,10 +6,6 @@ class TinderRepository {
   final RandomUserClient client;
 
   Future<List<User>> getUsers({int page = 0, String gender = "female"}) async {
-    return client.getUsers(
-      page: page,
-      gender: gender,
-      result: 10
-    );
+    return client.getUsers(page: page, gender: gender, results: 10);
   }
 }

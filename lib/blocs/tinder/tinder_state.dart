@@ -21,7 +21,7 @@ class TinderErrorState extends TinderState {
   List<Object> get props => [message];
 
   @override
-  String toString() => "TinderErrorState {files: $message}";
+  String toString() => "TinderErrorState {message: $message}";
 }
 
 class TinderLoadedNextPageState extends TinderState {

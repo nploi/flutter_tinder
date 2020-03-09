@@ -37,14 +37,11 @@ class DatabaseProvider {
         "name TEXT, "
         "location TEXT, "
         "email TEXT, "
-        "location TEXT, "
         "username TEXT, "
         "registered INTEGER, "
         "dob INTEGER, "
-        "done INTEGER, "
-        "description TEXT, "
         "phone TEXT, "
-        "picture TEXT, "
+        "picture TEXT "
         ")");
   }
 

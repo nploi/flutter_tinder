@@ -33,7 +33,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       var user = await userRepository.createTodo(user: event.user);
       yield UserLikedState(user);
     } catch (exception) {
-      yield UserErrorState(exception.toString());
+      yield UserErrorState(exception.message);
     }
   }
 

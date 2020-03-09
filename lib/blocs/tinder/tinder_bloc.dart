@@ -41,7 +41,7 @@ class TinderBloc extends Bloc<TinderEvent, TinderState> {
       _page++;
       yield TinderLoadedNextPageState(_users);
     } catch (exception) {
-      yield TinderErrorState(exception.toString());
+      yield TinderErrorState(exception.message);
     }
   }
 

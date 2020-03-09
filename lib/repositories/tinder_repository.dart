@@ -6,6 +6,6 @@ class TinderRepository {
   final RandomUserClient client;
 
   Future<List<User>> getUsers({int page = 0, String gender = "female"}) async {
-    return client.getUsers(page: page, gender: gender, results: 10);
+    return client.getUsers(page: page, gender: gender, results: 5);
   }
 }

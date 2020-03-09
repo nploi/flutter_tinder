@@ -1,4 +1,3 @@
-
 part of 'tab_info_bloc.dart';
 
 @immutable
@@ -22,16 +21,16 @@ class TabInfoErrorState extends TabInfoState {
   List<Object> get props => [message];
 
   @override
-  String toString() => "TabInfoErrorState {files: $message}";
+  String toString() => "TabInfoErrorState {message: $message}";
 }
 
-class TabInfoDidSomeThingState extends TabInfoState {
-
-  const TabInfoDidSomeThingState();
-
-  @override
-  List<Object> get props => [];
+class TabInfoPressedState extends TabInfoState {
+  final TabInfo tabInfo;
+  const TabInfoPressedState(this.tabInfo);
 
   @override
-  String toString() => "TabInfoDidSomeThingState {}";
+  List<Object> get props => [tabInfo];
+
+  @override
+  String toString() => "TabInfoPressedState {tabInfo: $tabInfo}";
 }

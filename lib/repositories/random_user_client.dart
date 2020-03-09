@@ -25,7 +25,7 @@ class RandomUserClient {
   }
 
   Future<List<User>> getUsers(
-      {String gender = "female", int page = 0, int results = 100}) async {
+      {String gender = "female", int page = 0, int results = 20}) async {
     try {
       final dio.Dio dioValue = dio.Dio()
         ..interceptors.add(
@@ -38,6 +38,7 @@ class RandomUserClient {
           "gender": gender,
           "page": page,
           "results": results,
+          "inc": "name"
         },
       );
 

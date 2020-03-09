@@ -22,6 +22,9 @@ class TinderApp extends StatelessWidget {
         BlocProvider<TinderBloc>(
           create: (context) => TinderBloc(),
         ),
+        BlocProvider<UserBloc>(
+          create: (context) => UserBloc(),
+        ),
       ],
       child:
           BlocBuilder<SettingsBloc, SettingsState>(builder: (context, state) {

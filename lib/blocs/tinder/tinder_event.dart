@@ -1,4 +1,3 @@
-
 part of 'tinder_bloc.dart';
 
 @immutable
@@ -9,7 +8,6 @@ abstract class TinderEvent extends Equatable {
 }
 
 class TinderLoadNextPageEvent extends TinderEvent {
-
   const TinderLoadNextPageEvent();
 
   @override
@@ -18,4 +16,3 @@ class TinderLoadNextPageEvent extends TinderEvent {
   @override
   String toString() => "TinderLoadNextPageEvent {}";
 }
-

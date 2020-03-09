@@ -36,6 +36,7 @@ class TinderBloc extends Bloc<TinderEvent, TinderState> {
     yield TinderLoadingState();
     try {
       var newUsers = await tinderRepository.getUsers(page: _page);
+      users.clear();
       users.addAll(newUsers);
       _page++;
       yield TinderLoadedNextPageState(_users);

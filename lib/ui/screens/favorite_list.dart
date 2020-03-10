@@ -24,7 +24,10 @@ class _FavoriteListScreenState extends State<FavoriteListScreen> {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text(S.of(context).favoriteListLabel),
+        title: Text(
+          S.of(context).favoriteListLabel,
+          style: Theme.of(context).textTheme.title,
+        ),
       ),
       body: RefreshIndicator(
         onRefresh: () async {

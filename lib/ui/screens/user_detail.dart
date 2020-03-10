@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tinder/models/models.dart';
 import 'package:flutter_tinder/ui/widgets/widgets.dart';
 
@@ -16,8 +17,11 @@ class _UserDetailScreenState extends State<UserDetailScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: UserSwipeCard(
-        user: widget.user,
+      body: Container(
+        height: ScreenUtil().setHeight(1400),
+        child: UserSwipeCard(
+          user: widget.user,
+        ),
       ),
     );
   }

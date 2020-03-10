@@ -1,6 +1,7 @@
 # flutter_tinder
+[![Codemagic build status](https://api.codemagic.io/apps/5e677dcd4ce63c10d9e74405/5e677dcd4ce63c10d9e74404/status_badge.svg)](https://codemagic.io/apps/5e677dcd4ce63c10d9e74405/5e677dcd4ce63c10d9e74404/latest_build)
 
-A new Flutter application.
+Tinder clone
 
 ## Getting Started
 ```

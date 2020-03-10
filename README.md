@@ -3,14 +3,30 @@
 A new Flutter application.
 
 ## Getting Started
+```
+flutter run
+```
 
-This project is a starting point for a Flutter application.
+### Release mode
+```
+flutter build apk ./lib/main.dart && flutter install
+```
 
-A few resources to get you started if this is your first Flutter project:
+## Unit test & analyze
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Run unit test
+```bash
+flutter test
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Sqlite test
+```bash
+# sqlite cannot run on the machine.
+flutter run test/database/database_test.dart 
+```
+
+### analyze
+```bash
+# Check coding style
+flutter analyze
+```

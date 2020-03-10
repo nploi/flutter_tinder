@@ -22,6 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "appName" : MessageLookupByLibrary.simpleMessage("Tinder"),
-    "languageAppbarTitle" : MessageLookupByLibrary.simpleMessage("Language")
+    "emptyErrorMessage" : MessageLookupByLibrary.simpleMessage("Results is empty"),
+    "favoriteListLabel" : MessageLookupByLibrary.simpleMessage("Favorite list"),
+    "languageAppbarTitle" : MessageLookupByLibrary.simpleMessage("Language"),
+    "netWorkErrorMessage" : MessageLookupByLibrary.simpleMessage("No network connection"),
+    "offlineStatus" : MessageLookupByLibrary.simpleMessage("OFFLINE"),
+    "onlineStatus" : MessageLookupByLibrary.simpleMessage("ONLINE"),
+    "retryButtonLabel" : MessageLookupByLibrary.simpleMessage("Retry")
   };
 }

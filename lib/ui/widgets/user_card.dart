@@ -27,6 +27,7 @@ class _UserCardState extends State<UserCard> {
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
+            elevation: 10,
             child: Column(
               children: <Widget>[
                 Expanded(
@@ -118,6 +119,7 @@ class _UserCardState extends State<UserCard> {
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.title.copyWith(
           color: Colors.white,
+          fontWeight: FontWeight.bold,
           shadows: [
             Shadow(
               color: Theme.of(context).primaryColor,

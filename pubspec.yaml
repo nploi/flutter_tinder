@@ -39,6 +39,7 @@ dependencies:
   flutter_tindercard: ^0.1.8
   flutter_screenutil: ^1.0.2
   flutter_shimmer: ^1.2.0
+  flutter_offline: ^0.3.0
 
   get_it: ^4.0.0
 

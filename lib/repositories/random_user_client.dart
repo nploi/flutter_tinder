@@ -34,20 +34,26 @@ class RandomUserClient {
 
       dio.Response dioResponse = await dioValue.get(
         url + "/?randomapiyy",
+        options: dio.Options(sendTimeout: 1000),
         queryParameters: {
           "gender": gender,
           "page": page,
           "results": results,
-          "inc": "name"
         },
       );
 
       Response response = Response.fromJson(jsonDecode(dioResponse.data));
       if (response.results.isEmpty) {
-        throw Exception("Results is Empty");
+        throw Exception("empty");
       }
       return response.results.map((result) => result.user).toList();
     } on dio.DioError catch (e) {
+      if (e.type == dio.DioErrorType.DEFAULT) {
+        throw Exception("network");
+      }
+      if (e.message.isNotEmpty) {
+        throw Exception(e.message);
+      }
       throw Exception(e.response.data["error"]);
     }
   }

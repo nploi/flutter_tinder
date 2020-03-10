@@ -1,4 +1,10 @@
 {
   "appName": "Tinder",
-  "languageAppbarTitle": "Language"
+  "languageAppbarTitle": "Language",
+  "favoriteListLabel": "Favorite list",
+  "onlineStatus": "ONLINE",
+  "offlineStatus": "OFFLINE",
+  "emptyErrorMessage": "Results is empty",
+  "netWorkErrorMessage": "No network connection",
+  "retryButtonLabel": "Retry"
 }

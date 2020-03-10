@@ -22,6 +22,12 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "appName" : MessageLookupByLibrary.simpleMessage("Tinder"),
-    "languageAppbarTitle" : MessageLookupByLibrary.simpleMessage("Ngôn ngữ")
+    "emptyErrorMessage" : MessageLookupByLibrary.simpleMessage("Kết quả rỗng"),
+    "favoriteListLabel" : MessageLookupByLibrary.simpleMessage("Danh sách yêu thích"),
+    "languageAppbarTitle" : MessageLookupByLibrary.simpleMessage("Ngôn ngữ"),
+    "netWorkErrorMessage" : MessageLookupByLibrary.simpleMessage("Chưa kết nối mạng"),
+    "offlineStatus" : MessageLookupByLibrary.simpleMessage("Chưa kết nối mạng"),
+    "onlineStatus" : MessageLookupByLibrary.simpleMessage("Đã kết nối mạng"),
+    "retryButtonLabel" : MessageLookupByLibrary.simpleMessage("Thử lại")
   };
 }

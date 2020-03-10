@@ -1,4 +1,10 @@
 {
   "appName": "Tinder",
-  "languageAppbarTitle": "Ngôn ngữ"
+  "languageAppbarTitle": "Ngôn ngữ",
+  "favoriteListLabel": "Danh sách yêu thích",
+  "onlineStatus": "Đã kết nối mạng",
+  "offlineStatus": "Chưa kết nối mạng",
+  "emptyErrorMessage": "Kết quả rỗng",
+  "netWorkErrorMessage": "Chưa kết nối mạng",
+  "retryButtonLabel": "Thử lại"
 }

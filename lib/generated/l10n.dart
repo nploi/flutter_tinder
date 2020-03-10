@@ -46,6 +46,60 @@ class S {
       args: [],
     );
   }
+
+  String get favoriteListLabel {
+    return Intl.message(
+      'Favorite list',
+      name: 'favoriteListLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get onlineStatus {
+    return Intl.message(
+      'ONLINE',
+      name: 'onlineStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get offlineStatus {
+    return Intl.message(
+      'OFFLINE',
+      name: 'offlineStatus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get emptyErrorMessage {
+    return Intl.message(
+      'Results is empty',
+      name: 'emptyErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get netWorkErrorMessage {
+    return Intl.message(
+      'No network connection',
+      name: 'netWorkErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get retryButtonLabel {
+    return Intl.message(
+      'Retry',
+      name: 'retryButtonLabel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

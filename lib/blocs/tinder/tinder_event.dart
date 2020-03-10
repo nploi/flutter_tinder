@@ -16,13 +16,3 @@ class TinderLoadNextPageEvent extends TinderEvent {
   @override
   String toString() => "TinderLoadNextPageEvent {}";
 }
-
-class TinderLoadNextEvent extends TinderEvent {
-  const TinderLoadNextEvent();
-
-  @override
-  List<Object> get props => [];
-
-  @override
-  String toString() => "TinderNextEvent {}";
-}

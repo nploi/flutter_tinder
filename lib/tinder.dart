@@ -19,64 +19,58 @@ class TinderApp extends StatelessWidget {
         BlocProvider<SettingsBloc>(
           create: (context) => SettingsBloc(),
         ),
-        BlocProvider<TinderBloc>(
-          create: (context) => TinderBloc(),
-        ),
         BlocProvider<UserBloc>(
           create: (context) => UserBloc(),
         ),
       ],
       child:
           BlocBuilder<SettingsBloc, SettingsState>(builder: (context, state) {
-        return MaterialApp(
-          navigatorKey: locator<NavigationService>().navigatorKey,
-          onGenerateTitle: (BuildContext context) => S.of(context).appName,
-          debugShowCheckedModeBanner: false,
-          theme: myTheme,
-          initialRoute: HomeScreen.routeName,
-          builder: DevicePreview.appBuilder,
-          localizationsDelegates: [
-            S.delegate,
-            GlobalMaterialLocalizations.delegate,
-            GlobalWidgetsLocalizations.delegate,
-            GlobalCupertinoLocalizations.delegate,
-            const LocaleNamesLocalizationsDelegate()
-          ],
-          supportedLocales: S.delegate.supportedLocales,
-          locale: Locale(
-              BlocProvider.of<SettingsBloc>(context).settings.languageCode ??
-                  "",
-              ""),
-          onGenerateRoute: (settings) {
-            Widget page;
-            switch (settings.name) {
-              case HomeScreen.routeName:
-                page = HomeScreen();
-                break;
-//              case TinderDetailScreen.routeName:
-//                if (settings.arguments != null) {
-//                  page = TinderDetailScreen(
-//                    todo: settings.arguments,
-//                  );
-//                }
-//                break;
-              case LanguageScreen.routeName:
-                page = LanguageScreen();
-                break;
-              case FavoriteListScreen.routeName:
-                page = FavoriteListScreen();
-                break;
-              case UserDetailScreen.routeName:
-                if (settings.arguments != null) {
-                  page = UserDetailScreen(
-                    user: settings.arguments,
-                  );
-                }
-                break;
-            }
-            return PageTransition(
-                type: PageTransitionType.rightToLeft, child: page);
-          },
+        return BlocProvider<TinderBloc>(
+          create: (context) =>
+              TinderBloc(settingsBloc: BlocProvider.of<SettingsBloc>(context)),
+          child: MaterialApp(
+            navigatorKey: locator<NavigationService>().navigatorKey,
+            onGenerateTitle: (BuildContext context) => S.of(context).appName,
+            debugShowCheckedModeBanner: false,
+            theme: myTheme,
+            initialRoute: HomeScreen.routeName,
+            builder: DevicePreview.appBuilder,
+            localizationsDelegates: [
+              S.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+              const LocaleNamesLocalizationsDelegate()
+            ],
+            supportedLocales: S.delegate.supportedLocales,
+            locale: Locale(
+                BlocProvider.of<SettingsBloc>(context).settings.languageCode ??
+                    "",
+                ""),
+            onGenerateRoute: (settings) {
+              Widget page;
+              switch (settings.name) {
+                case HomeScreen.routeName:
+                  page = HomeScreen();
+                  break;
+                case LanguageScreen.routeName:
+                  page = LanguageScreen();
+                  break;
+                case FavoriteListScreen.routeName:
+                  page = FavoriteListScreen();
+                  break;
+                case UserDetailScreen.routeName:
+                  if (settings.arguments != null) {
+                    page = UserDetailScreen(
+                      user: settings.arguments,
+                    );
+                  }
+                  break;
+              }
+              return PageTransition(
+                  type: PageTransitionType.rightToLeft, child: page);
+            },
+          ),
         );
       }),
     );

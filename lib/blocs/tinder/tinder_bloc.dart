@@ -2,8 +2,9 @@ import "dart:async";
 import "package:bloc/bloc.dart";
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter_tinder/blocs/blocs.dart';
 import 'package:flutter_tinder/models/models.dart';
-import 'package:flutter_tinder/repositories/tinder_repository.dart';
+import 'package:flutter_tinder/repositories/repositories.dart';
 
 part 'tinder_event.dart';
 
@@ -14,7 +15,19 @@ class TinderBloc extends Bloc<TinderEvent, TinderState> {
   int _page = 0;
   final List<User> _users = [];
 
-  TinderBloc({this.tinderRepository = const TinderRepository()});
+  final SettingsBloc settingsBloc;
+  StreamSubscription settingsSubscription;
+
+  TinderBloc(
+      {this.tinderRepository = const TinderRepository(), this.settingsBloc}) {
+    if (settingsBloc != null) {
+      settingsSubscription = settingsBloc.listen((state) {
+        if (state is SettingsUpdatedSettingsState) {
+          add(const TinderLoadNextPageEvent());
+        }
+      });
+    }
+  }
 
   List<User> get users => _users;
 
@@ -27,10 +40,6 @@ class TinderBloc extends Bloc<TinderEvent, TinderState> {
   ) async* {
     if (event is TinderLoadNextPageEvent) {
       yield* _handleTinderLoadNextPageEvent(event);
-      return;
-    }
-    if (event is TinderLoadNextEvent) {
-      yield* _handleTinderLoadNextEvent(event);
       return;
     }
   }
@@ -49,20 +58,9 @@ class TinderBloc extends Bloc<TinderEvent, TinderState> {
     }
   }
 
-  Stream<TinderState> _handleTinderLoadNextEvent(
-      TinderLoadNextEvent event) async* {
-    try {
-      if (_users.isNotEmpty) {
-        _users.removeAt(0);
-      }
-      yield TinderLoadedNextState(_users);
-    } catch (exception) {
-      yield TinderErrorState(exception.message);
-    }
-  }
-
   @override
   Future<void> close() {
+    settingsSubscription.cancel();
     return super.close();
   }
 }

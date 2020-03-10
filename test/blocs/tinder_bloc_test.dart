@@ -35,16 +35,5 @@ void main() {
         TinderLoadedNextPageState(users),
       ],
     );
-    blocTest<TinderBloc, TinderEvent, TinderState>(
-      'emits [TinderLoadingState(), TinderLoadedNextState()]'
-      'when successful',
-      build: () async {
-        return tinderBloc;
-      },
-      act: (bloc) async => tinderBloc.add(const TinderLoadNextEvent()),
-      expect: [
-        const TinderLoadedNextState([]),
-      ],
-    );
   });
 }

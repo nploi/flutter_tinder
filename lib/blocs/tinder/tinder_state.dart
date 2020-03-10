@@ -35,15 +35,3 @@ class TinderLoadedNextPageState extends TinderState {
   @override
   String toString() => "TinderLoadedNextPageState {users: $users}";
 }
-
-class TinderLoadedNextState extends TinderState {
-  final List<User> users;
-
-  const TinderLoadedNextState(this.users);
-
-  @override
-  List<Object> get props => [users];
-
-  @override
-  String toString() => "TinderLoadedNextState {users: $users}";
-}

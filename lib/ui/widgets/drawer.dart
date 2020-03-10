@@ -41,6 +41,9 @@ class CustomDrawer extends StatelessWidget {
                 value: settings.showMale,
                 onChanged: (value) {
                   settings.showMale = value;
+                  if (!settings.showMale && !settings.showFemale) {
+                    settings.showFemale = true;
+                  }
                   BlocProvider.of<SettingsBloc>(context)
                       .add(SettingsUpdateSettingsEvent(settings));
                 },
@@ -53,6 +56,9 @@ class CustomDrawer extends StatelessWidget {
                 value: settings.showFemale,
                 onChanged: (value) {
                   settings.showFemale = value;
+                  if (!settings.showMale && !settings.showFemale) {
+                    settings.showMale = true;
+                  }
                   BlocProvider.of<SettingsBloc>(context)
                       .add(SettingsUpdateSettingsEvent(settings));
                 },

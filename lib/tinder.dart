@@ -66,6 +66,13 @@ class TinderApp extends StatelessWidget {
               case FavoriteListScreen.routeName:
                 page = FavoriteListScreen();
                 break;
+              case UserDetailScreen.routeName:
+                if (settings.arguments != null) {
+                  page = UserDetailScreen(
+                    user: settings.arguments,
+                  );
+                }
+                break;
             }
             return PageTransition(
                 type: PageTransitionType.rightToLeft, child: page);

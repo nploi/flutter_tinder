@@ -35,9 +35,10 @@ class User {
         json['location'] != null ? Location.fromJson(json['location']) : null;
     email = json['email'];
     username = json['username'];
-    registered =
-        json['registered'] != null ? int.parse(json['registered']) : null;
-    dob = json['dob'] != null ? int.parse(json['dob']) : null;
+    registered = json['registered'] != null
+        ? int.parse(json['registered'].toString())
+        : null;
+    dob = json['dob'] != null ? int.parse(json['dob'].toString()) : null;
     phone = json['phone'];
     picture = json['picture'];
   }

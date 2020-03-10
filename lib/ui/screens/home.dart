@@ -1,4 +1,3 @@
-import 'dart:math';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,7 +6,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_tinder/blocs/blocs.dart';
 import 'package:flutter_tinder/blocs/tinder/tinder_bloc.dart';
 import 'package:flutter_tinder/generated/l10n.dart';
-import 'package:flutter_tinder/models/models.dart';
 import 'package:flutter_tinder/services/locator.dart';
 import 'package:flutter_tinder/services/navigation.dart';
 import 'package:flutter_tinder/ui/screens/screens.dart';
@@ -41,9 +39,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
     return Scaffold(
-      appBar: AppBar(
-        actions: <Widget>[buildMenuAction()],
-      ),
+      drawer: CustomDrawer(),
+      appBar: AppBar(),
       body: BlocBuilder<TinderBloc, TinderState>(
         builder: (context, state) {
           Widget child = LoadingCard();
@@ -120,29 +117,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         icon: Icon(Icons.favorite),
       ),
-    );
-  }
-
-  Widget buildMenuAction() {
-    final Map<Menu, String> popups = {
-      Menu.language: S.of(context).languageAppbarTitle
-    };
-    return PopupMenuButton<Menu>(
-      onSelected: (action) {
-        switch (action) {
-          case Menu.language:
-            locator<NavigationService>().push(LanguageScreen.routeName);
-            break;
-        }
-      },
-      itemBuilder: (BuildContext context) {
-        return popups.keys.map((key) {
-          return PopupMenuItem<Menu>(
-            value: key,
-            child: Text(popups[key]),
-          );
-        }).toList();
-      },
     );
   }
 

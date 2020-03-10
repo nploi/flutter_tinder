@@ -7,5 +7,8 @@
   "offlineStatus": "Chưa kết nối mạng",
   "emptyErrorMessage": "Kết quả rỗng",
   "netWorkErrorMessage": "Chưa kết nối mạng",
-  "retryButtonLabel": "Thử lại"
+  "retryButtonLabel": "Thử lại",
+  "showMaleTitle": "Nam",
+  "showFemaleTitle": "Nữ",
+  "showMeLabel": "Cho tôi xem"
 }

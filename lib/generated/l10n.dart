@@ -109,6 +109,33 @@ class S {
       args: [],
     );
   }
+
+  String get showMaleTitle {
+    return Intl.message(
+      'Men',
+      name: 'showMaleTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get showFemaleTitle {
+    return Intl.message(
+      'Women',
+      name: 'showFemaleTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  String get showMeLabel {
+    return Intl.message(
+      'Show me',
+      name: 'showMeLabel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

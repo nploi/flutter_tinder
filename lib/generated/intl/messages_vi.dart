@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "netWorkErrorMessage" : MessageLookupByLibrary.simpleMessage("Chưa kết nối mạng"),
     "offlineStatus" : MessageLookupByLibrary.simpleMessage("Chưa kết nối mạng"),
     "onlineStatus" : MessageLookupByLibrary.simpleMessage("Đã kết nối mạng"),
-    "retryButtonLabel" : MessageLookupByLibrary.simpleMessage("Thử lại")
+    "retryButtonLabel" : MessageLookupByLibrary.simpleMessage("Thử lại"),
+    "showFemaleTitle" : MessageLookupByLibrary.simpleMessage("Nữ"),
+    "showMaleTitle" : MessageLookupByLibrary.simpleMessage("Nam"),
+    "showMeLabel" : MessageLookupByLibrary.simpleMessage("Cho tôi xem")
   };
 }

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_tinder/blocs/blocs.dart';
 import 'package:flutter_tinder/generated/l10n.dart';
+import 'package:flutter_tinder/services/services.dart';
+import 'package:flutter_tinder/ui/screens/screens.dart';
 import 'package:flutter_tinder/ui/widgets/widgets.dart';
 
 class FavoriteListScreen extends StatefulWidget {
@@ -50,6 +52,10 @@ class _FavoriteListScreenState extends State<FavoriteListScreen> {
             itemBuilder: (BuildContext context, int index) {
               return UserGridItem(
                 user: state.users[index],
+                onTap: () {
+                  locator<NavigationService>().push(UserDetailScreen.routeName,
+                      arguments: state.users[index]);
+                },
               );
             },
           );

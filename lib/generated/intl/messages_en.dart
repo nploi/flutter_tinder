@@ -29,6 +29,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "netWorkErrorMessage" : MessageLookupByLibrary.simpleMessage("No network connection"),
     "offlineStatus" : MessageLookupByLibrary.simpleMessage("OFFLINE"),
     "onlineStatus" : MessageLookupByLibrary.simpleMessage("ONLINE"),
-    "retryButtonLabel" : MessageLookupByLibrary.simpleMessage("Retry")
+    "retryButtonLabel" : MessageLookupByLibrary.simpleMessage("Retry"),
+    "showFemaleTitle" : MessageLookupByLibrary.simpleMessage("Women"),
+    "showMaleTitle" : MessageLookupByLibrary.simpleMessage("Men"),
+    "showMeLabel" : MessageLookupByLibrary.simpleMessage("Show me")
   };
 }

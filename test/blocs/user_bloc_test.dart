@@ -43,17 +43,17 @@ void main() {
       User user = User();
       User user1 = User(email: "123@gmail.com");
       blocTest<UserBloc, UserEvent, UserState>(
-        'emits [UserLoadingState(), UserLoadedFavouriteListState()]'
+        'emits [UserLoadingState(), UserLoadedFavoriteListState()]'
         'when successful',
         build: () async {
           when(userRepository.getAllUser())
               .thenAnswer((_) async => [user, user1]);
           return userBloc;
         },
-        act: (bloc) async => userBloc.add(const UserLoadFavouriteListEvent()),
+        act: (bloc) async => userBloc.add(const UserLoadFavoriteListEvent()),
         expect: [
           UserLoadingState(),
-          UserLoadedFavouriteListState([user, user1]),
+          UserLoadedFavoriteListState([user, user1]),
         ],
       );
     }

@@ -8,16 +8,16 @@ import 'package:flutter_tinder/utils/utils.dart';
 
 import 'custom_icon_button.dart';
 
-class UserCard extends StatefulWidget {
+class UserSwipeCard extends StatefulWidget {
   final User user;
 
-  const UserCard({Key key, this.user}) : super(key: key);
+  const UserSwipeCard({Key key, this.user}) : super(key: key);
 
   @override
-  _UserCardState createState() => _UserCardState();
+  _UserSwipeCardState createState() => _UserSwipeCardState();
 }
 
-class _UserCardState extends State<UserCard> {
+class _UserSwipeCardState extends State<UserSwipeCard> {
   final TabInfoBloc _tabInfoBloc = TabInfoBloc();
 
   @override
@@ -116,16 +116,9 @@ class _UserCardState extends State<UserCard> {
         texts[key],
         textAlign: TextAlign.center,
         style: Theme.of(context).textTheme.title.copyWith(
-          color: Colors.white,
-          fontWeight: FontWeight.bold,
-          shadows: [
-            Shadow(
-              color: Theme.of(context).primaryColor,
-              blurRadius: 10.0,
-              offset: const Offset(-10.0, 5.0),
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
-          ],
-        ),
       ),
     );
   }

@@ -1,5 +1,6 @@
 {
   "appName": "Tinder",
+  "addToFavoriteListLabel": "Đã thêm vào danh sách yêu thích",
   "languageAppbarTitle": "Ngôn ngữ",
   "favoriteListLabel": "Danh sách yêu thích",
   "onlineStatus": "Đã kết nối mạng",

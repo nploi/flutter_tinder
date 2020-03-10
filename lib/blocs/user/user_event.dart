@@ -19,12 +19,12 @@ class UserLikeEvent extends UserEvent {
 }
 
 
-class UserLoadFavouriteListEvent extends UserEvent {
-  const UserLoadFavouriteListEvent();
+class UserLoadFavoriteListEvent extends UserEvent {
+  const UserLoadFavoriteListEvent();
 
   @override
   List<Object> get props => [];
 
   @override
-  String toString() => "UserLoadFavouriteListEvent {}";
+  String toString() => "UserLoadFavoriteListEvent {}";
 }

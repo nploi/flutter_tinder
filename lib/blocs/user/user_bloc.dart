@@ -25,7 +25,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       yield* _handleUserLikeEvent(event);
       return;
     }
-    if (event is UserLoadFavouriteListEvent) {
+    if (event is UserLoadFavoriteListEvent) {
       yield* _handleUserLoadFavouriteListEvent(event);
       return;
     }
@@ -42,11 +42,11 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   }
 
   Stream<UserState> _handleUserLoadFavouriteListEvent(
-      UserLoadFavouriteListEvent event) async* {
+      UserLoadFavoriteListEvent event) async* {
     yield UserLoadingState();
     try {
       var users = await userRepository.getAllUser();
-      yield UserLoadedFavouriteListState(users);
+      yield UserLoadedFavoriteListState(users);
     } catch (exception) {
       yield UserErrorState(exception.message);
     }

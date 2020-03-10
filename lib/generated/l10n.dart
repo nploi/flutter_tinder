@@ -38,6 +38,15 @@ class S {
     );
   }
 
+  String get addToFavoriteListLabel {
+    return Intl.message(
+      'Added to favorite list',
+      name: 'addToFavoriteListLabel',
+      desc: '',
+      args: [],
+    );
+  }
+
   String get languageAppbarTitle {
     return Intl.message(
       'Language',

@@ -1,5 +1,6 @@
 {
   "appName": "Tinder",
+  "addToFavoriteListLabel": "Added to favorite list",
   "languageAppbarTitle": "Language",
   "favoriteListLabel": "Favorite list",
   "onlineStatus": "ONLINE",

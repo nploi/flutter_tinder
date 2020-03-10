@@ -26,20 +26,36 @@ class TinderBloc extends Bloc<TinderEvent, TinderState> {
     TinderEvent event,
   ) async* {
     if (event is TinderLoadNextPageEvent) {
-      yield* _handleTinderDoSomeThingEvent(event);
+      yield* _handleTinderLoadNextPageEvent(event);
+      return;
+    }
+    if (event is TinderLoadNextEvent) {
+      yield* _handleTinderLoadNextEvent(event);
       return;
     }
   }
 
-  Stream<TinderState> _handleTinderDoSomeThingEvent(
+  Stream<TinderState> _handleTinderLoadNextPageEvent(
       TinderLoadNextPageEvent event) async* {
     yield TinderLoadingState();
     try {
       var newUsers = await tinderRepository.getUsers(page: _page);
-      users.clear();
-      users.addAll(newUsers);
+      _users.clear();
+      _users.addAll(newUsers);
       _page++;
       yield TinderLoadedNextPageState(_users);
+    } catch (exception) {
+      yield TinderErrorState(exception.message);
+    }
+  }
+
+  Stream<TinderState> _handleTinderLoadNextEvent(
+      TinderLoadNextEvent event) async* {
+    try {
+      if (_users.isNotEmpty) {
+        _users.removeAt(0);
+      }
+      yield TinderLoadedNextState(_users);
     } catch (exception) {
       yield TinderErrorState(exception.message);
     }

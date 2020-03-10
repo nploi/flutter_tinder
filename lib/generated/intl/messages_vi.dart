@@ -21,6 +21,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "addToFavoriteListLabel" : MessageLookupByLibrary.simpleMessage("Đã thêm vào danh sách yêu thích"),
     "appName" : MessageLookupByLibrary.simpleMessage("Tinder"),
     "emptyErrorMessage" : MessageLookupByLibrary.simpleMessage("Kết quả rỗng"),
     "favoriteListLabel" : MessageLookupByLibrary.simpleMessage("Danh sách yêu thích"),

@@ -67,9 +67,11 @@ final ThemeData myTheme = ThemeData(
     ),
   ),
   appBarTheme: const AppBarTheme(
-    color: Color(0xfffafafa),
-    elevation: 0
-  ),
+      color: Color(0xfffafafa),
+      elevation: 0,
+      iconTheme: IconThemeData(
+        color: Color(0x8a000000),
+      )),
   textTheme: TextTheme(
     display4: TextStyle(
       color: const Color(0x8a000000),

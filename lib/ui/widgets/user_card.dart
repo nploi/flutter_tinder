@@ -6,6 +6,8 @@ import 'package:flutter_tinder/blocs/blocs.dart';
 import 'package:flutter_tinder/models/models.dart';
 import 'package:flutter_tinder/utils/utils.dart';
 
+import 'custom_icon_button.dart';
+
 class UserCard extends StatefulWidget {
   final User user;
 
@@ -90,13 +92,9 @@ class _UserCardState extends State<UserCard> {
   }
 
   Widget buildButton({IconData icon, TabInfo value}) {
-    return IconButton(
-      icon: Icon(
-        icon,
-        color: _tabInfoBloc.tab == value
-            ? Theme.of(context).primaryColor
-            : Theme.of(context).dividerColor,
-      ),
+    return CustomIconButton(
+      icon: icon,
+      selected: _tabInfoBloc.tab == value,
       onPressed: () {
         _tabInfoBloc.add(TabInfoPressEvent(value));
       },

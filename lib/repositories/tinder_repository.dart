@@ -21,7 +21,7 @@ class TinderRepository {
     return client.getUsers(
       page: page,
       gender: gender,
-      results: 5,
+      results: 10,
     );
   }
 

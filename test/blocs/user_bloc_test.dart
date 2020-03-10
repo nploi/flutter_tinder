@@ -21,20 +21,41 @@ void main() {
   });
 
   group("UserBloc", () {
-    User user = User();
-    blocTest<UserBloc, UserEvent, UserState>(
-      'emits [UserLoadingState(), UserDidSomeThingState()]'
-      'when successful',
-      build: () async {
-        when(userRepository.createTodo(user: user))
-            .thenAnswer((_) async => user..id = 1);
-        return userBloc;
-      },
-      act: (bloc) async => userBloc.add(UserLikeEvent(user)),
-      expect: [
-        UserLoadingState(),
-        UserLikedState(user),
-      ],
-    );
+    {
+      User user = User();
+      blocTest<UserBloc, UserEvent, UserState>(
+        'emits [UserLoadingState(), UserLikedState()]'
+        'when successful',
+        build: () async {
+          when(userRepository.createUser(user: user))
+              .thenAnswer((_) async => user..id = 1);
+          return userBloc;
+        },
+        act: (bloc) async => userBloc.add(UserLikeEvent(user)),
+        expect: [
+          UserLoadingState(),
+          UserLikedState(user),
+        ],
+      );
+    }
+
+    {
+      User user = User();
+      User user1 = User(email: "123@gmail.com");
+      blocTest<UserBloc, UserEvent, UserState>(
+        'emits [UserLoadingState(), UserLoadedFavouriteListState()]'
+        'when successful',
+        build: () async {
+          when(userRepository.getAllUser())
+              .thenAnswer((_) async => [user, user1]);
+          return userBloc;
+        },
+        act: (bloc) async => userBloc.add(const UserLoadFavouriteListEvent()),
+        expect: [
+          UserLoadingState(),
+          UserLoadedFavouriteListState([user, user1]),
+        ],
+      );
+    }
   });
 }

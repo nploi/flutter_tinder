@@ -34,3 +34,15 @@ class UserLikedState extends UserState {
   @override
   String toString() => "UserLikedState {user: ${user.toJson()}";
 }
+
+class UserLoadedFavouriteListState extends UserState {
+  final List<User> users;
+
+  const UserLoadedFavouriteListState(this.users);
+
+  @override
+  List<Object> get props => [users];
+
+  @override
+  String toString() => "UserLoadedFavouriteListState {users: $users}";
+}

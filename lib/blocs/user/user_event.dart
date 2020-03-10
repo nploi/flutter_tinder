@@ -17,3 +17,14 @@ class UserLikeEvent extends UserEvent {
   @override
   String toString() => "UserLikeEvent {user: ${user.toJson()}";
 }
+
+
+class UserLoadFavouriteListEvent extends UserEvent {
+  const UserLoadFavouriteListEvent();
+
+  @override
+  List<Object> get props => [];
+
+  @override
+  String toString() => "UserLoadFavouriteListEvent {}";
+}

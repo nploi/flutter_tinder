@@ -9,7 +9,11 @@ class UserRepository {
     return userDao.getUserById(id: id);
   }
 
-  Future<User> createTodo({User user}) async {
+  Future<List<User>> getAllUser() async {
+    return userDao.getAllUser();
+  }
+
+  Future<User> createUser({User user}) async {
     var id = await userDao.createUser(user: user);
     return getById(id: id);
   }

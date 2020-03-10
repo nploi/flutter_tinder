@@ -60,7 +60,7 @@ class TinderBloc extends Bloc<TinderEvent, TinderState> {
 
   @override
   Future<void> close() {
-    settingsSubscription.cancel();
+    settingsSubscription?.cancel();
     return super.close();
   }
 }
